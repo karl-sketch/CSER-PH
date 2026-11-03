@@ -106,7 +106,7 @@
                 </div>
                 <div class="fighter-art hero-art" id="hero-art" data-animal="fox" aria-hidden="true">
                   <div class="hero-figure">
-                    <img class="fighter-illustration player-hero-image" id="player-hero-image" src="assets/player-heroes/azure-knight.png" alt="">
+                    <img class="fighter-illustration player-hero-image" id="player-hero-image" src="player-heroes/azure-knight.png" alt="">
                     <svg class="fighter-illustration fox-illustration" viewBox="0 0 160 160">
                       <defs>
                         <linearGradient id="furLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".24" stop-color="#e79a5b"/><stop offset=".68" stop-color="#b95e42"/><stop offset="1" stop-color="#542d40"/></linearGradient>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="fighter-art enemy-art" id="enemy-art" aria-hidden="true">
                   <div class="enemy-figure">
-                    <img class="examiner-portrait" id="examiner-image" src="assets/examiners/emerald-revenant.png" alt="">
+                    <img class="examiner-portrait" id="examiner-image" src="examiners/emerald-revenant.png" alt="">
                     <svg class="fighter-illustration beast-illustration" viewBox="0 0 160 160">
                       <defs>
                         <linearGradient id="beastFur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd2b5"/><stop offset=".28" stop-color="#a64e68"/><stop offset=".7" stop-color="#683650"/><stop offset="1" stop-color="#30243d"/></linearGradient>
@@ -274,7 +274,21 @@
 
   <dialog id="auth-dialog" class="modal">
     <form method="dialog" class="modal-close-form"><button class="close-button" aria-label="Close">×</button></form>
-    <div class="modal-brand"><span class="brand-mark">C<span>S</span></span><div><strong id="auth-heading">Welcome to CSER PH</strong><p id="auth-subheading">Create a local learner profile to save your progress.</p></div></div>
+    <div class="modal-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <path d="M24 3 42 10v12c0 11.4-7.7 18.9-18 23C13.7 40.9 6 33.4 6 22V10L24 3Z" fill="#14213d" stroke="#64e2d0" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="m17 13 .8 1.8 2 .2-1.5 1.3.4 2-1.7-1-1.7 1 .4-2-1.5-1.3 2-.2L17 13Zm14 0 .8 1.8 2 .2-1.5 1.3.4 2-1.7-1-1.7 1 .4-2-1.5-1.3 2-.2L31 13Z" fill="#f5c66a"/>
+          <path d="M12.5 22.5c4.4-.8 8.3.2 11.5 2.8 3.2-2.6 7.1-3.6 11.5-2.8v12c-4.4-.8-8.3.2-11.5 2.8-3.2-2.6-7.1-3.6-11.5-2.8v-12Z" fill="#1b3154" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M24 25.3v12M15.5 26.5c2.6-.3 4.7.1 6.5 1.1m10.5-1.1c-2.1-.2-3.8 0-5.3.6" fill="none" stroke="#64e2d0" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="m27.5 31 2.1 2.1 4.2-4.6" fill="none" stroke="#f5c66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div>
+        <strong id="auth-heading">Welcome to CSER PH</strong>
+        <p id="auth-subheading">Create a local learner profile to save your progress.</p>
+      </div>
+    </div>
     <div class="auth-tabs"><button class="auth-tab active" data-mode="register">Create account</button><button class="auth-tab" data-mode="login">Log in</button></div>
     <form id="auth-form">
       <label id="username-field">Username<input name="username" autocomplete="username" minlength="2" maxlength="24" placeholder="e.g. Alex" required></label>
