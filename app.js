@@ -9,48 +9,48 @@
     { name: "General Information", short: "GENERAL INFORMATION", icon: "⚖", color: "violet", desc: "Constitution, history & public service" }
   ];
   const heroRoster = [
-    { id: "azure-knight", name: "AZURE KNIGHT", title: "THE VANGUARD", image: "assets/player-heroes/azure-knight.png" },
-    { id: "violet-arcanist", name: "VIOLET ARCANIST", title: "ORBWEAVER", image: "assets/player-heroes/violet-arcanist.png" },
-    { id: "briar-ranger", name: "BRIAR RANGER", title: "WILDSHOT", image: "assets/player-heroes/briar-ranger.png" },
-    { id: "veil-assassin", name: "VEIL ASSASSIN", title: "DUSKBLADE", image: "assets/player-heroes/veil-assassin.png" },
-    { id: "sun-paladin", name: "SUN PALADIN", title: "DAWNSHIELD", image: "assets/player-heroes/sun-paladin.png" },
-    { id: "iron-berserker", name: "IRON BERSERKER", title: "WARBREAKER", image: "assets/player-heroes/iron-berserker.png" },
-    { id: "dawn-priestess", name: "DAWN PRIESTESS", title: "LIGHTKEEPER", image: "assets/player-heroes/dawn-priestess.png" },
-    { id: "thorn-druid", name: "THORN DRUID", title: "ROOTCALLER", image: "assets/player-heroes/thorn-druid.png" },
-    { id: "void-necromancer", name: "VOID NECROMANCER", title: "SOULBINDER", image: "assets/player-heroes/void-necromancer.png" },
-    { id: "ember-mage", name: "EMBER MAGE", title: "FLAMEWEAVER", image: "assets/player-heroes/ember-mage.png" },
-    { id: "scarlet-duelist", name: "SCARLET DUELIST", title: "RED TEMPEST", image: "assets/player-heroes/scarlet-duelist.png" },
-    { id: "monk-of-stone", name: "STONE MONK", title: "IRON FIST", image: "assets/player-heroes/monk-of-stone.png" },
-    { id: "forest-archer", name: "FOREST ARCHER", title: "GREEN ARROW", image: "assets/player-heroes/forest-archer.png" },
-    { id: "frost-wolf", name: "FROST WOLF", title: "ICEWARDEN", image: "assets/player-heroes/frost-wolf.png" },
-    { id: "crimson-blade", name: "CRIMSON BLADE", title: "ROGUE CAPTAIN", image: "assets/player-heroes/crimson-blade.png" },
-    { id: "winged-guardian", name: "WINGED GUARDIAN", title: "SKY SENTINEL", image: "assets/player-heroes/winged-guardian.png" },
-    { id: "infernal-knight", name: "INFERNAL KNIGHT", title: "ASHEN LORD", image: "assets/player-heroes/infernal-knight.png" },
-    { id: "red-samurai", name: "RED SAMURAI", title: "STORMBLADE", image: "assets/player-heroes/red-samurai.png" },
-    { id: "gear-ranger", name: "GEAR RANGER", title: "IRONSHOT", image: "assets/player-heroes/gear-ranger.png" },
-    { id: "violet-sorceress", name: "VIOLET SORCERESS", title: "RUNEKEEPER", image: "assets/player-heroes/violet-sorceress.png" }
+    { id: "azure-knight", name: "AZURE KNIGHT", title: "THE VANGUARD", image: "player-heroes/azure-knight.png" },
+    { id: "violet-arcanist", name: "VIOLET ARCANIST", title: "ORBWEAVER", image: "player-heroes/violet-arcanist.png" },
+    { id: "briar-ranger", name: "BRIAR RANGER", title: "WILDSHOT", image: "player-heroes/briar-ranger.png" },
+    { id: "veil-assassin", name: "VEIL ASSASSIN", title: "DUSKBLADE", image: "player-heroes/veil-assassin.png" },
+    { id: "sun-paladin", name: "SUN PALADIN", title: "DAWNSHIELD", image: "player-heroes/sun-paladin.png" },
+    { id: "iron-berserker", name: "IRON BERSERKER", title: "WARBREAKER", image: "player-heroes/iron-berserker.png" },
+    { id: "dawn-priestess", name: "DAWN PRIESTESS", title: "LIGHTKEEPER", image: "player-heroes/dawn-priestess.png" },
+    { id: "thorn-druid", name: "THORN DRUID", title: "ROOTCALLER", image: "player-heroes/thorn-druid.png" },
+    { id: "void-necromancer", name: "VOID NECROMANCER", title: "SOULBINDER", image: "player-heroes/void-necromancer.png" },
+    { id: "ember-mage", name: "EMBER MAGE", title: "FLAMEWEAVER", image: "player-heroes/ember-mage.png" },
+    { id: "scarlet-duelist", name: "SCARLET DUELIST", title: "RED TEMPEST", image: "player-heroes/scarlet-duelist.png" },
+    { id: "monk-of-stone", name: "STONE MONK", title: "IRON FIST", image: "player-heroes/monk-of-stone.png" },
+    { id: "forest-archer", name: "FOREST ARCHER", title: "GREEN ARROW", image: "player-heroes/forest-archer.png" },
+    { id: "frost-wolf", name: "FROST WOLF", title: "ICEWARDEN", image: "player-heroes/frost-wolf.png" },
+    { id: "crimson-blade", name: "CRIMSON BLADE", title: "ROGUE CAPTAIN", image: "player-heroes/crimson-blade.png" },
+    { id: "winged-guardian", name: "WINGED GUARDIAN", title: "SKY SENTINEL", image: "player-heroes/winged-guardian.png" },
+    { id: "infernal-knight", name: "INFERNAL KNIGHT", title: "ASHEN LORD", image: "player-heroes/infernal-knight.png" },
+    { id: "red-samurai", name: "RED SAMURAI", title: "STORMBLADE", image: "player-heroes/red-samurai.png" },
+    { id: "gear-ranger", name: "GEAR RANGER", title: "IRONSHOT", image: "player-heroes/gear-ranger.png" },
+    { id: "violet-sorceress", name: "VIOLET SORCERESS", title: "RUNEKEEPER", image: "player-heroes/violet-sorceress.png" }
   ];
   const examinerRoster = [
-    { id: "emerald-revenant", name: "EMERALD REVENANT", title: "THE GRAVEWARDEN", image: "assets/examiners/emerald-revenant.png" },
-    { id: "void-oracle", name: "VOID ORACLE", title: "KEEPER OF THE RIFT", image: "assets/examiners/void-oracle.png" },
-    { id: "ashen-stalker", name: "ASHEN STALKER", title: "THE SILENT EDGE", image: "assets/examiners/ashen-stalker.png" },
-    { id: "night-reaper", name: "NIGHT REAPER", title: "SHADOW OF JUDGMENT", image: "assets/examiners/night-reaper.png" },
-    { id: "obsidian-warlock", name: "OBSIDIAN WARLOCK", title: "MASTER OF HEXES", image: "assets/examiners/obsidian-warlock.png" },
-    { id: "iron-ogre", name: "IRON OGRE", title: "THE GATEBREAKER", image: "assets/examiners/iron-ogre.png" },
-    { id: "blood-priestess", name: "BLOOD PRIESTESS", title: "THE RED VEIL", image: "assets/examiners/blood-priestess.png" },
-    { id: "mire-shaman", name: "MIRE SHAMAN", title: "ROOTS OF RUIN", image: "assets/examiners/mire-shaman.png" },
-    { id: "bone-lich", name: "BONE LICH", title: "THE LAST EXAMINER", image: "assets/examiners/bone-lich.png" },
-    { id: "chaos-mage", name: "CHAOS MAGE", title: "WILDSPELL", image: "assets/examiners/chaos-mage.png" },
-    { id: "shadow-monk", name: "SHADOW MONK", title: "FIST OF THE ABYSS", image: "assets/examiners/shadow-monk.png" },
-    { id: "goblin-alchemist", name: "GOBLIN ALCHEMIST", title: "BREWER OF DOOM", image: "assets/examiners/goblin-alchemist.png" },
-    { id: "crimson-vampire", name: "CRIMSON VAMPIRE", title: "THE NIGHT TYRANT", image: "assets/examiners/crimson-vampire.png" },
-    { id: "frost-shogun", name: "FROST SHOGUN", title: "ICEBOUND GENERAL", image: "assets/examiners/frost-shogun.png" },
-    { id: "dread-pirate", name: "DREAD PIRATE", title: "CAPTAIN OF THE DAMNED", image: "assets/examiners/dread-pirate.png" },
-    { id: "winged-fiend", name: "WINGED FIEND", title: "TERROR OF THE DEEP", image: "assets/examiners/winged-fiend.png" },
-    { id: "infernal-dragon", name: "INFERNAL DRAGON", title: "THE ASHEN TITAN", image: "assets/examiners/infernal-dragon.png" },
-    { id: "gargoyle-fiend", name: "GARGOYLE FIEND", title: "THE STONE DEVOURER", image: "assets/examiners/gargoyle-fiend.png" },
-    { id: "iron-golem", name: "IRON GOLEM", title: "THE UNYIELDING", image: "assets/examiners/iron-golem.png" },
-    { id: "serpent-sorceress", name: "SERPENT SORCERESS", title: "THE GORGON QUEEN", image: "assets/examiners/serpent-sorceress.png" }
+    { id: "emerald-revenant", name: "EMERALD REVENANT", title: "THE GRAVEWARDEN", image: "examiners/emerald-revenant.png" },
+    { id: "void-oracle", name: "VOID ORACLE", title: "KEEPER OF THE RIFT", image: "examiners/void-oracle.png" },
+    { id: "ashen-stalker", name: "ASHEN STALKER", title: "THE SILENT EDGE", image: "examiners/ashen-stalker.png" },
+    { id: "night-reaper", name: "NIGHT REAPER", title: "SHADOW OF JUDGMENT", image: "examiners/night-reaper.png" },
+    { id: "obsidian-warlock", name: "OBSIDIAN WARLOCK", title: "MASTER OF HEXES", image: "examiners/obsidian-warlock.png" },
+    { id: "iron-ogre", name: "IRON OGRE", title: "THE GATEBREAKER", image: "examiners/iron-ogre.png" },
+    { id: "blood-priestess", name: "BLOOD PRIESTESS", title: "THE RED VEIL", image: "examiners/blood-priestess.png" },
+    { id: "mire-shaman", name: "MIRE SHAMAN", title: "ROOTS OF RUIN", image: "examiners/mire-shaman.png" },
+    { id: "bone-lich", name: "BONE LICH", title: "THE LAST EXAMINER", image: "examiners/bone-lich.png" },
+    { id: "chaos-mage", name: "CHAOS MAGE", title: "WILDSPELL", image: "examiners/chaos-mage.png" },
+    { id: "shadow-monk", name: "SHADOW MONK", title: "FIST OF THE ABYSS", image: "examiners/shadow-monk.png" },
+    { id: "goblin-alchemist", name: "GOBLIN ALCHEMIST", title: "BREWER OF DOOM", image: "examiners/goblin-alchemist.png" },
+    { id: "crimson-vampire", name: "CRIMSON VAMPIRE", title: "THE NIGHT TYRANT", image: "examiners/crimson-vampire.png" },
+    { id: "frost-shogun", name: "FROST SHOGUN", title: "ICEBOUND GENERAL", image: "examiners/frost-shogun.png" },
+    { id: "dread-pirate", name: "DREAD PIRATE", title: "CAPTAIN OF THE DAMNED", image: "examiners/dread-pirate.png" },
+    { id: "winged-fiend", name: "WINGED FIEND", title: "TERROR OF THE DEEP", image: "examiners/winged-fiend.png" },
+    { id: "infernal-dragon", name: "INFERNAL DRAGON", title: "THE ASHEN TITAN", image: "examiners/infernal-dragon.png" },
+    { id: "gargoyle-fiend", name: "GARGOYLE FIEND", title: "THE STONE DEVOURER", image: "examiners/gargoyle-fiend.png" },
+    { id: "iron-golem", name: "IRON GOLEM", title: "THE UNYIELDING", image: "examiners/iron-golem.png" },
+    { id: "serpent-sorceress", name: "SERPENT SORCERESS", title: "THE GORGON QUEEN", image: "examiners/serpent-sorceress.png" }
   ];
 
   const makeQuestion = (prompt, answer, wrong, explanation) => {
@@ -579,7 +579,7 @@
       await context.resume();
       if (!musicOn || musicSource) return;
       if (!musicBuffer) {
-        musicLoading ||= fetch("assets/audio/background-music.wav").then((response) => {
+        musicLoading ||= fetch("audio/background-music.wav").then((response) => {
           if (!response.ok && response.status !== 0) throw new Error(`Could not load background music (${response.status}).`);
           return response.arrayBuffer();
         }).then((data) => context.decodeAudioData(data));
