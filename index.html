@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="A gamified Civil Service Examination reviewer for the Philippines.">
+  <title>CSER PH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <section class="landing-screen" id="landing-screen">
+    <header class="landing-nav">
+      <a class="brand" href="#" aria-label="CSER PH home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false"><path d="M24 3 42 10v12c0 11.4-7.7 18.9-18 23C13.7 40.9 6 33.4 6 22V10L24 3Z" fill="#14213d" stroke="#64e2d0" stroke-width="2.5" stroke-linejoin="round"/><path d="m17 13 .8 1.8 2 .2-1.5 1.3.4 2-1.7-1-1.7 1 .4-2-1.5-1.3 2-.2L17 13Zm14 0 .8 1.8 2 .2-1.5 1.3.4 2-1.7-1-1.7 1 .4-2-1.5-1.3 2-.2L31 13Z" fill="#f5c66a"/><path d="M12.5 22.5c4.4-.8 8.3.2 11.5 2.8 3.2-2.6 7.1-3.6 11.5-2.8v12c-4.4-.8-8.3.2-11.5 2.8-3.2-2.6-7.1-3.6-11.5-2.8v-12Z" fill="#1b3154" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M24 25.3v12M15.5 26.5c2.6-.3 4.7.1 6.5 1.1m10.5-1.1c-2.1-.2-3.8 0-5.3.6" fill="none" stroke="#64e2d0" stroke-width="1.5" stroke-linecap="round"/><path d="m27.5 31 2.1 2.1 4.2-4.6" fill="none" stroke="#f5c66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-copy"><strong>CSER <em>PH</em></strong><small>THE CIVIL SERVICE QUEST</small></span>
+      </a>
+      <div class="landing-nav-actions">
+        <span class="landing-member-note">Already have an account?</span>
+        <button class="landing-login" id="landing-login">LOG IN</button>
+      </div>
+    </header>
+    <main class="landing-main">
+      <div class="landing-copy">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR CIVIL SERVICE QUEST BEGINS</p>
+        <h1>Study for your future.<br><span>Battle for your goals.</span></h1>
+        <p class="landing-description">Make exam prep an adventure. Master the Civil Service Exam with bite-sized challenges, a fantasy battle arena, and progress that’s yours to keep.</p>
+        <div class="landing-cta-row">
+          <button class="start-button landing-register" id="landing-register">CREATE YOUR ACCOUNT <span>→</span></button>
+          <span class="landing-free-note">Free to start <i>·</i> Progress saved on this device</span>
+        </div>
+        <div class="landing-benefits">
+          <span><b>✦</b> 200 practice questions</span>
+          <span><b>⚔</b> Four exam phases</span>
+          <span><b>↗</b> Track your progress</span>
+        </div>
+      </div>
+      <div class="landing-visual" aria-hidden="true">
+        <div class="landing-orbit orbit-one"></div><div class="landing-orbit orbit-two"></div>
+        <div class="landing-spark spark-one">✦</div><div class="landing-spark spark-two">✧</div><div class="landing-spark spark-three">✦</div>
+        <div class="landing-battle-card">
+          <div class="landing-battle-label"><span class="live-dot"></span> YOUR TRAINING GROUND</div>
+          <div class="landing-creatures">
+            <div class="landing-creature fox-creature"><span>🦊</span><small>YOUR HERO</small></div>
+            <b class="landing-versus">VS</b>
+            <div class="landing-creature dragon-creature"><span>🐉</span><small>THE EXAMINER</small></div>
+          </div>
+          <div class="landing-battle-footer"><span>READY WHEN YOU ARE</span><span class="landing-battle-dots"><i></i><i></i><i></i></span></div>
+        </div>
+        <div class="landing-float-card float-xp"><span>✦</span><div><b>+10 XP</b><small>EVERY RIGHT ANSWER</small></div></div>
+        <div class="landing-float-card float-phase"><span>⌘</span><div><b>4 PHASES</b><small>CHOOSE YOUR PATH</small></div></div>
+      </div>
+    </main>
+    <footer class="landing-footer"><span>CSER PH <i>·</i> THE CIVIL SERVICE QUEST</span><span>Start where you are. Grow from there.</span></footer>
+  </section>
+
+  <div class="app-shell hidden" id="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CSER PH home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false"><path d="M24 3 42 10v12c0 11.4-7.7 18.9-18 23C13.7 40.9 6 33.4 6 22V10L24 3Z" fill="#14213d" stroke="#64e2d0" stroke-width="2.5" stroke-linejoin="round"/><path d="m17 13 .8 1.8 2 .2-1.5 1.3.4 2-1.7-1-1.7 1 .4-2-1.5-1.3 2-.2L17 13Zm14 0 .8 1.8 2 .2-1.5 1.3.4 2-1.7-1-1.7 1 .4-2-1.5-1.3 2-.2L31 13Z" fill="#f5c66a"/><path d="M12.5 22.5c4.4-.8 8.3.2 11.5 2.8 3.2-2.6 7.1-3.6 11.5-2.8v12c-4.4-.8-8.3.2-11.5 2.8-3.2-2.6-7.1-3.6-11.5-2.8v-12Z" fill="#1b3154" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M24 25.3v12M15.5 26.5c2.6-.3 4.7.1 6.5 1.1m10.5-1.1c-2.1-.2-3.8 0-5.3.6" fill="none" stroke="#64e2d0" stroke-width="1.5" stroke-linecap="round"/><path d="m27.5 31 2.1 2.1 4.2-4.6" fill="none" stroke="#f5c66a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-copy"><strong>CSER <em>PH</em></strong><small>THE CIVIL SERVICE QUEST</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="streak-pill" id="streak-pill"><span>✦</span> <b id="streak-count">0</b> DAY STREAK</span>
+        <button class="icon-button" id="music-toggle" type="button" aria-label="Play background music" title="Play background music" aria-pressed="false">♬</button>
+        <button class="icon-button" id="sound-toggle" type="button" aria-label="Mute sound effects" title="Mute sound effects" aria-pressed="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5-1.5a6 6 0 0 1 0 9m2.5-11.5a9.5 9.5 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="user-chip" id="profile-open" aria-label="Open profile">
+          <span class="avatar small-avatar" id="nav-avatar">?</span>
+          <span class="user-chip-name" id="nav-name">Guest</span>
+          <span class="chevron">⌄</span>
+        </button>
+        <button class="text-button hidden" id="logout-button">Log out</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow"><span class="live-dot"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+          <h1>Ready to <span>rise?</span></h1>
+          <p class="subheading">Sharpen your skills. Take on the examiners. Earn your spot.</p>
+        </div>
+        <div class="welcome-stats">
+          <div class="stat-card"><span class="stat-icon xp-icon">✦</span><div><strong id="total-xp">0</strong><small>TOTAL XP</small></div></div>
+          <div class="stat-card"><span class="stat-icon accuracy-icon">◎</span><div><strong id="accuracy-rate">—</strong><small>ACCURACY</small></div></div>
+          <div class="stat-card"><span class="stat-icon level-icon">⌁</span><div><strong id="highest-level">1</strong><small>HIGHEST LEVEL</small></div></div>
+        </div>
+      </section>
+
+      <section class="game-layout">
+        <div class="game-main">
+          <section class="arena panel" aria-label="Combat arena">
+            <div class="arena-topline">
+              <span class="arena-label"><span class="live-dot"></span> COMBAT ARENA</span>
+              <span class="phase-chip" id="arena-phase">PHASE 01 · VERBAL ABILITY</span>
+            </div>
+            <div class="combatants">
+              <article class="fighter hero-fighter" id="hero-fighter">
+                <div class="fighter-top">
+                  <div class="avatar hero-avatar" id="hero-avatar">?</div>
+                  <div class="fighter-name hero-fighter-name"><strong id="hero-name">Guest</strong><div class="hero-meta"><small id="hero-character">AZURE KNIGHT</small><small id="hero-level">LV 01</small></div></div>
+                </div>
+                <div class="fighter-art hero-art" id="hero-art" data-animal="fox" aria-hidden="true">
+                  <div class="hero-figure">
+                    <img class="fighter-illustration player-hero-image" id="player-hero-image" src="assets/player-heroes/azure-knight.png" alt="">
+                    <svg class="fighter-illustration fox-illustration" viewBox="0 0 160 160">
+                      <defs>
+                        <linearGradient id="furLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".24" stop-color="#e79a5b"/><stop offset=".68" stop-color="#b95e42"/><stop offset="1" stop-color="#542d40"/></linearGradient>
+                        <linearGradient id="earShade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffbfaa"/><stop offset="1" stop-color="#753b50"/></linearGradient>
+                        <linearGradient id="maskLight" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff9e9"/><stop offset="1" stop-color="#d9bda7"/></linearGradient>
+                        <linearGradient id="heroCape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#98b9ef"/><stop offset=".38" stop-color="#405b91"/><stop offset="1" stop-color="#171e3a"/></linearGradient>
+                        <linearGradient id="armorLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c1ffe4"/><stop offset=".22" stop-color="#48caa8"/><stop offset=".65" stop-color="#176d6b"/><stop offset="1" stop-color="#143449"/></linearGradient>
+                        <linearGradient id="plateLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0fff0"/><stop offset=".42" stop-color="#52d0a6"/><stop offset="1" stop-color="#267b7b"/></linearGradient>
+                        <linearGradient id="gemLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8b0"/><stop offset=".4" stop-color="#ffc858"/><stop offset="1" stop-color="#c75b3c"/></linearGradient>
+                        <linearGradient id="goldLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff3bd"/><stop offset=".45" stop-color="#e4b85e"/><stop offset="1" stop-color="#89513a"/></linearGradient>
+                        <linearGradient id="bladeLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".24" stop-color="#c5f6ff"/><stop offset=".52" stop-color="#548db1"/><stop offset=".72" stop-color="#f6ffff"/><stop offset="1" stop-color="#6781a7"/></linearGradient>
+                        <linearGradient id="bootLight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a8c7ef"/><stop offset=".38" stop-color="#465a87"/><stop offset="1" stop-color="#1b2138"/></linearGradient>
+                        <linearGradient id="wolfFur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2f4ff"/><stop offset=".32" stop-color="#8998ba"/><stop offset=".7" stop-color="#53617f"/><stop offset="1" stop-color="#282f49"/></linearGradient>
+                        <linearGradient id="wolfArmor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bddefb"/><stop offset=".32" stop-color="#627ba4"/><stop offset="1" stop-color="#242b49"/></linearGradient>
+                        <linearGradient id="dragonScale" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7ffc0"/><stop offset=".32" stop-color="#55a978"/><stop offset=".72" stop-color="#23675e"/><stop offset="1" stop-color="#183948"/></linearGradient>
+                        <linearGradient id="dragonArmor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b0f3a5"/><stop offset=".35" stop-color="#327e70"/><stop offset="1" stop-color="#173948"/></linearGradient>
+                        <linearGradient id="tigerFur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff1ad"/><stop offset=".28" stop-color="#f2a04b"/><stop offset=".7" stop-color="#c65c34"/><stop offset="1" stop-color="#643347"/></linearGradient>
+                        <linearGradient id="tigerArmor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd59a"/><stop offset=".4" stop-color="#ae633f"/><stop offset="1" stop-color="#542f3d"/></linearGradient>
+                        <linearGradient id="bearFur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe2b0"/><stop offset=".3" stop-color="#bc8056"/><stop offset=".72" stop-color="#81513f"/><stop offset="1" stop-color="#3e2d38"/></linearGradient>
+                        <linearGradient id="bearArmor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5d399"/><stop offset=".38" stop-color="#8e6846"/><stop offset="1" stop-color="#3d3841"/></linearGradient>
+                        <pattern id="furGrain" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M1 1q2 2 0 4m5-3q2 2 0 4" fill="none" stroke="#fff4d9" stroke-opacity=".28" stroke-width=".6"/></pattern>
+                        <pattern id="armorGrain" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M1 0v7m3-7v7" stroke="#d7fff1" stroke-opacity=".24" stroke-width=".55"/></pattern>
+                        <clipPath id="heroHeadClip"><path d="M45 42 65 30h30l20 12 3 25-13 22-25 9-25-9-13-22z"/></clipPath>
+                        <clipPath id="heroArmorClip"><path d="m47 86 31-7 32 7 12 38-42 14-43-14z"/></clipPath>
+                      </defs>
+                      <path class="hero-dragon-wing" d="m47 86-34-31 6 36-13-3 40 38m70-40 34-31-6 36 13-3-40 38"/>
+                      <path class="hero-crest" d="m64 35-8-19 19 14 7-21 8 21 18-14-7 21"/>
+                      <path class="hero-bear-ears" d="M47 42a13 13 0 1 1 19 10m47-10a13 13 0 1 0-19 10"/>
+                      <path class="fox-tail" d="M37 104C10 106 11 69 29 60c-4 17 7 19 18 22z"/>
+                      <path class="fox-tail-tip" d="M25 67c-7 12-4 22 7 25-2-9-1-17-7-25z"/>
+                      <path class="hero-cape-shape" d="M47 74 31 143l46-17 42 17-17-69z"/>
+                      <path class="fox-ear" d="m51 47-8-35 27 23m40 12 11-35-29 23"/>
+                      <path class="fox-ear-inner" d="m52 36-3-15 13 13m41 1 14-14-5 18"/>
+                      <path class="fox-head-shape" d="M45 42 65 30h30l20 12 3 25-13 22-25 9-25-9-13-22z"/>
+                      <path class="fox-mask" d="m48 63 31-8 31 8-11 20-20 8-20-8z"/>
+                      <path class="fox-muzzle" d="m61 69 18-9 19 9-19 18z"/>
+                      <path class="fox-nose" d="m75 71 8 0-4 6z"/>
+                      <path class="fox-eye" d="M57 58q7-8 15 0-7 6-15 0zm34 0q7-8 15 0-7 6-15 0z"/>
+                      <path class="hero-pupils" d="M64 55q4 3 0 6-3-3 0-6m33 0q4 3 0 6-3-3 0-6z"/>
+                      <circle class="hero-eye-glint" cx="64" cy="56" r="1.2"/><circle class="hero-eye-glint" cx="97" cy="56" r="1.2"/>
+                      <path class="hero-fur-detail" d="m49 58 7-4m-5 14 7 4m52-14-7-4m5 14-7 4M57 80l11 6m35-6-11 6"/>
+                      <g class="hero-owl-details"><circle class="hero-owl-ring" cx="64" cy="58" r="13"/><circle class="hero-owl-ring" cx="96" cy="58" r="13"/><path class="hero-owl-pupil" d="m60 55 8 0-4 8zm31 0 8 0-4 8z"/><path class="hero-owl-beak" d="m74 67 10 0-5 10z"/></g>
+                      <g class="hero-tiger-details"><path class="hero-stripe" d="m52 48 13 3-9 8m44-8 12-4-4 11m-49 14 13-6-4 13m41-13 12 6-10 7m-31-39-5 9m26-10 5 9"/></g>
+                      <path class="fox-armor" d="m47 86 31-7 32 7 12 38-42 14-43-14z"/>
+                      <path class="armor-plate" d="m65 86 14-5 16 5-7 22-10 10-10-10z"/>
+                      <path class="hero-armor-engraving" d="m56 94 9 2m30-2 9-2m-43 10 8 2m29-2 8-2m-28 1v11"/>
+                      <path class="armor-gem" d="m78 91 5 7-5 8-5-8z"/>
+                      <path class="armor-belt" d="m43 119 71 0 4 9-40 12-39-12z"/>
+                      <path class="fox-leg" d="m52 128 22 6-4 17H47zm38 6 22-6 7 17H94z"/>
+                      <path class="fox-boot" d="M45 145h26v8H41zm48 0h26l5 8H92z"/>
+                      <path class="hero-claw" d="m43 129-5 17m72-17 7 17"/>
+                      <path class="sword-blade" d="m121 86 5-4 25-58 5 3-18 63-11 12z"/>
+                      <path class="sword-guard" d="m113 91 22 9-3 6-22-9z"/>
+                      <path class="sword-hilt" d="m109 91 8 3-7 18-8-3z"/>
+                      <rect class="fur-texture" x="35" y="24" width="100" height="74" clip-path="url(#heroHeadClip)"/>
+                      <rect class="armor-texture" x="35" y="78" width="100" height="64" clip-path="url(#heroArmorClip)"/>
+                    </svg>
+                  </div>
+                  <span class="art-glow"></span>
+                </div>
+                <div class="health-wrap"><div class="health-meta"><span>HP</span><b id="hero-hp-label">100 / 100</b></div><div class="health-track"><span class="health-fill hero-health" id="hero-hp"></span></div></div>
+              </article>
+              <div class="versus"><span class="versus-line"></span><b>VS</b><span class="versus-line"></span><small id="round-indicator">ROUND 01</small></div>
+              <article class="fighter enemy-fighter" id="enemy-fighter">
+                <div class="fighter-top enemy-top">
+                  <div class="enemy-sigil" id="enemy-sigil">♜</div>
+                  <div class="fighter-name"><span>EXAMINER</span><strong id="enemy-name"></strong><small id="enemy-title">THE GATEKEEPER</small></div>
+                </div>
+                <div class="fighter-art enemy-art" id="enemy-art" aria-hidden="true">
+                  <div class="enemy-figure">
+                    <img class="examiner-portrait" id="examiner-image" src="assets/examiners/emerald-revenant.png" alt="">
+                    <svg class="fighter-illustration beast-illustration" viewBox="0 0 160 160">
+                      <defs>
+                        <linearGradient id="beastFur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd2b5"/><stop offset=".28" stop-color="#a64e68"/><stop offset=".7" stop-color="#683650"/><stop offset="1" stop-color="#30243d"/></linearGradient>
+                        <linearGradient id="beastArmor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5a1a0"/><stop offset=".35" stop-color="#843e5c"/><stop offset="1" stop-color="#302b46"/></linearGradient>
+                        <linearGradient id="beastCape" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bb7185"/><stop offset=".5" stop-color="#583149"/><stop offset="1" stop-color="#241f38"/></linearGradient>
+                        <linearGradient id="beastMask" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffd0b6"/><stop offset="1" stop-color="#b76a74"/></linearGradient>
+                        <linearGradient id="beastGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".5" stop-color="#d9a95d"/><stop offset="1" stop-color="#815242"/></linearGradient>
+                        <linearGradient id="beastGem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8b0"/><stop offset=".42" stop-color="#ff7891"/><stop offset="1" stop-color="#9d315d"/></linearGradient>
+                        <linearGradient id="beastWolf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eef3ff"/><stop offset=".36" stop-color="#8995bd"/><stop offset="1" stop-color="#353851"/></linearGradient>
+                        <linearGradient id="beastDragon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ccffcb"/><stop offset=".38" stop-color="#438e7c"/><stop offset="1" stop-color="#1c424b"/></linearGradient>
+                        <linearGradient id="beastBoar" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4d0a0"/><stop offset=".4" stop-color="#a66c4e"/><stop offset="1" stop-color="#493744"/></linearGradient>
+                        <pattern id="beastGrain" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M0 2q3-2 6 0m-4 5q3-2 6 0" fill="none" stroke="#fff0d9" stroke-opacity=".28" stroke-width=".65"/></pattern>
+                        <pattern id="beastArmorGrain" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M1 0v7m3-7v7" stroke="#ffe0d7" stroke-opacity=".24" stroke-width=".55"/></pattern>
+                        <clipPath id="beastHeadClip"><path d="m42 46 20-17 37-1 22 19 2 32-19 22-28 9-29-11-16-22z"/></clipPath>
+                        <clipPath id="beastArmorClip"><path d="m42 92 37-10 39 10 13 37-52 15-51-15z"/></clipPath>
+                      </defs>
+                      <path class="beast-cape" d="m42 78-18 66 57-18 55 18-18-66z"/>
+                      <path class="beast-ear" d="m45 54-14-42 37 25m45 17 15-42-38 25"/>
+                      <path class="beast-horn" d="m54 45-7-27 21 20m37 7 9-27-23 20"/>
+                      <path class="beast-head" d="m42 46 20-17 37-1 22 19 2 32-19 22-28 9-29-11-16-22z"/>
+                      <path class="beast-mask" d="m48 65 30-7 35 8-12 24-21 12-23-12z"/>
+                      <path class="beast-muzzle" d="m66 75 13-9 20 9-19 16z"/>
+                      <path class="beast-nose" d="m75 74 10 0-5 7z"/>
+                      <path class="beast-eye" d="M54 60q8-9 17 0-8 7-17 0zm36 0q8-9 17 0-8 7-17 0z"/>
+                      <path class="beast-pupil" d="M62 57q4 3 0 7-3-4 0-7m36 0q4 3 0 7-3-4 0-7z"/>
+                      <circle class="beast-eye-glint" cx="62" cy="58" r="1.4"/><circle class="beast-eye-glint" cx="98" cy="58" r="1.4"/>
+                      <path class="beast-scar" d="m46 72 9 4m61-4-9 4m-49 14 10 3m39-3 10-3"/>
+                      <path class="beast-armor" d="m42 92 37-10 39 10 13 37-52 15-51-15z"/>
+                      <path class="beast-plate" d="m67 87 12-5 16 5-4 25-12 12-12-12z"/>
+                      <path class="beast-armor-engraving" d="m52 101 12 3m34-1 13-3m-57 9 13 3m34-2 13-3m-35-9v12"/>
+                      <path class="beast-gem" d="m79 94 6 7-6 9-6-9z"/>
+                      <path class="beast-claw" d="m48 123-6 20 11 2 7-18m47-4 7 23h12l-7-27"/>
+                      <path class="beast-spike" d="m57 88-10-11 17 2m52 9 10-12-17 2"/>
+                      <g class="owl-details"><path class="owl-disc" d="M48 51q31-30 63 0l-4 28q-26 19-54 0z"/><circle class="owl-eye-ring" cx="65" cy="62" r="13"/><circle class="owl-eye-ring" cx="96" cy="62" r="13"/><path class="owl-eye" d="m61 58 8 0-4 9zm31 0 8 0-4 9z"/><path class="owl-beak" d="m74 71 10 0-5 11z"/></g>
+                      <g class="dragon-details"><path class="dragon-wing" d="m43 85-30-31 6 33-14-3 34 39m79-38 30-31-6 33 14-3-34 39"/><path class="dragon-spines" d="m58 43 7-13 8 12 8-15 9 15 9-13 7 17"/></g>
+                      <g class="boar-details"><path class="boar-tusk" d="M48 79q-12 4-5 20l13-16m52-4q12 4 5 20l-13-16"/></g>
+                      <rect class="beast-texture" x="30" y="25" width="115" height="83" clip-path="url(#beastHeadClip)"/>
+                      <rect class="beast-armor-texture" x="30" y="79" width="112" height="70" clip-path="url(#beastArmorClip)"/>
+                    </svg>
+                  </div>
+                  <span class="art-glow"></span>
+                </div>
+                <div class="health-wrap"><div class="health-meta"><span>HP</span><b id="enemy-hp-label">100 / 100</b></div><div class="health-track"><span class="health-fill enemy-health" id="enemy-hp"></span></div></div>
+              </article>
+            </div>
+            <div class="arena-footer"><span id="battle-message">Choose a phase and begin your first encounter.</span><span class="battle-dots"><i></i><i></i><i></i></span></div>
+          </section>
+
+          <section class="question-panel panel" id="question-panel">
+            <div class="question-head">
+              <div><p class="eyebrow" id="question-category">YOUR CHALLENGE</p><h2 id="question-title">The first strike is yours.</h2></div>
+              <button class="start-button" id="start-battle"><span>▶</span> START ENCOUNTER</button>
+            </div>
+            <div class="question-progress">
+              <span id="level-label">LEVEL 01 / 50</span>
+              <div class="mini-progress"><span id="level-progress"></span></div>
+              <span id="phase-progress-label">0 / 50 CLEARED</span>
+            </div>
+            <div id="question-content" class="question-content">
+              <div class="empty-question"><span class="empty-icon">⚔</span><div><strong>Your training ground awaits</strong><p>Choose an exam phase, then start an encounter to face four questions.</p></div></div>
+            </div>
+          </section>
+
+          <section class="phase-section">
+            <div class="section-heading"><div><p class="eyebrow">YOUR TRAINING PATH</p><h2>Choose your phase</h2><p class="phase-guidance">Pick any subject to study — all four phases are open.</p></div><span class="phase-count">4 PHASES <i>·</i> 200 LEVELS</span></div>
+            <div class="phase-grid" id="phase-grid"></div>
+          </section>
+        </div>
+
+        <aside class="sidebar">
+          <section class="side-card profile-card panel">
+            <div class="side-card-title"><span>YOUR PROFILE</span><button class="more-button" id="profile-edit" aria-label="Edit profile">···</button></div>
+            <div class="profile-summary"><div class="avatar profile-avatar" id="profile-avatar">?</div><div><strong id="profile-name">Guest learner</strong><span id="profile-bio">Your civil service journey starts today.</span></div></div>
+            <div class="profile-divider"></div>
+            <div class="profile-row"><span>Target exam</span><strong id="target-exam">Not set</strong></div>
+            <div class="profile-row"><span>Exam date</span><strong id="target-date">Not set</strong></div>
+            <button class="outline-button full-button" id="profile-cta">EDIT PROFILE <span>↗</span></button>
+          </section>
+          <section class="side-card goal-card panel">
+            <div class="side-card-title"><span>YOUR DAILY GOAL</span><span class="goal-icon">✳</span></div>
+            <div class="goal-number"><strong id="goal-progress">0</strong><span> / 20 XP</span></div>
+            <div class="goal-track"><span id="goal-bar"></span></div>
+            <p id="goal-message">Answer correctly to earn XP and build your streak.</p>
+          </section>
+          <section class="side-card tip-card panel">
+            <div class="tip-icon">✦</div><div><span class="eyebrow">QUICK TIP</span><p id="tip-text">Small, consistent study sessions are more effective than cramming. Keep your streak alive!</p></div>
+          </section>
+          <div class="aside-note"><span>◈</span> BUILT FOR THE FUTURE PUBLIC SERVANT</div>
+        </aside>
+      </section>
+    </main>
+    <footer><span>CSER PH <i>·</i> YOUR CIVIL SERVICE EXAM REVIEWER</span><span>Study smart. Serve with purpose.</span></footer>
+  </div>
+
+  <dialog id="auth-dialog" class="modal">
+    <form method="dialog" class="modal-close-form"><button class="close-button" aria-label="Close">×</button></form>
+    <div class="modal-brand"><span class="brand-mark">C<span>S</span></span><div><strong id="auth-heading">Welcome to CSER PH</strong><p id="auth-subheading">Create a local learner profile to save your progress.</p></div></div>
+    <div class="auth-tabs"><button class="auth-tab active" data-mode="register">Create account</button><button class="auth-tab" data-mode="login">Log in</button></div>
+    <form id="auth-form">
+      <label id="username-field">Username<input name="username" autocomplete="username" minlength="2" maxlength="24" placeholder="e.g. Alex" required></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" maxlength="120" placeholder="Email" required></label>
+      <label>Password<input name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Password" required></label>
+      <p class="form-error" id="auth-error" role="alert"></p>
+      <button class="start-button full-button" type="submit" id="auth-submit">CREATE PROFILE <span>→</span></button>
+    </form>
+    <p class="local-notice">Demo mode: account and progress are stored on this device only. Do not reuse a real password.</p>
+  </dialog>
+
+  <dialog id="profile-dialog" class="modal">
+    <form method="dialog" class="modal-close-form"><button class="close-button" aria-label="Close">×</button></form>
+    <div class="modal-heading"><p class="eyebrow">LEARNER PROFILE</p><h2>Edit your profile</h2><p>Personalize your reviewer dashboard.</p></div>
+    <form id="profile-form" class="profile-form">
+      <div class="avatar-edit-row"><div class="avatar profile-avatar" id="edit-avatar-preview">?</div><label class="upload-button">UPLOAD AVATAR<input type="file" id="avatar-upload" accept="image/png,image/jpeg,image/webp"></label><button type="button" class="clear-avatar" id="clear-avatar">Remove</button></div>
+      <label>Display name<input name="displayName" maxlength="32" required></label>
+      <label>Short bio<textarea name="bio" maxlength="100" rows="2" placeholder="What are you working toward?"></textarea></label>
+      <label>Target exam level<select name="examLevel"><option value="">Choose a level</option><option>Professional</option><option>Sub-Professional</option></select></label>
+      <label>Target exam date<input name="examDate" type="date"></label>
+      <p class="form-error" id="profile-error" role="alert"></p>
+      <button class="start-button full-button" type="submit">SAVE PROFILE <span>→</span></button>
+    </form>
+    <div class="danger-zone"><span>Account actions</span><button id="delete-account" class="danger-button">Delete local account</button></div>
+  </dialog>
+
+  <dialog id="feedback-dialog" class="modal feedback-modal">
+    <div class="feedback-mark" id="feedback-mark">✦</div><p class="eyebrow" id="feedback-eyebrow">NICE WORK</p><h2 id="feedback-title">Correct!</h2>
+    <p id="feedback-explanation"></p><div class="feedback-reward" id="feedback-reward">+10 XP</div>
+    <button class="start-button full-button" id="feedback-continue">CONTINUE <span>→</span></button>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
