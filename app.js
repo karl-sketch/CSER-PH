@@ -3,10 +3,10 @@
 
   const STORE_KEY = "cser-ph-v1";
   const phases = [
-    { name: "Verbal Ability", short: "VERBAL ABILITY", icon: "✎", color: "mint", desc: "Grammar, vocabulary & comprehension" },
-    { name: "Numerical Ability", short: "NUMERICAL ABILITY", icon: "∑", color: "gold", desc: "Numbers, percentages & problem solving" },
-    { name: "Logical Reasoning", short: "LOGICAL REASONING", icon: "⌘", color: "blue", desc: "Patterns, deduction & critical thinking" },
-    { name: "General Information", short: "GENERAL INFORMATION", icon: "⚖", color: "violet", desc: "Constitution, history & public service" }
+    { name: "Verbal Ability", short: "VERBAL ABILITY", icon: "✎", color: "mint", desc: "Grammar, vocabulary & comprehension", timeLimitSeconds: 60 },
+    { name: "Numerical Ability", short: "NUMERICAL ABILITY", icon: "∑", color: "gold", desc: "Numbers, percentages & problem solving", timeLimitSeconds: 120 },
+    { name: "Logical Reasoning", short: "LOGICAL REASONING", icon: "⌘", color: "blue", desc: "Patterns, deduction & critical thinking", timeLimitSeconds: 60 },
+    { name: "General Information", short: "GENERAL INFORMATION", icon: "⚖", color: "violet", desc: "Constitution, history & public service", timeLimitSeconds: 60 }
   ];
   const heroRoster = [
     { id: "azure-knight", name: "AZURE KNIGHT", title: "THE VANGUARD", image: "player-heroes/azure-knight.png" },
@@ -366,6 +366,8 @@
   let selectedPhase = 0;
   let battle = null;
   let pendingQuestion = null;
+  let questionTimerInterval = null;
+  let questionAnswered = false;
   let soundOn = store.soundOn !== false;
   let musicOn = false;
   let audioContext = null;
@@ -410,6 +412,29 @@
     const date = new Date(`${value}T00:00:00`);
     return Number.isNaN(date.getTime()) ? "Not set" : date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
   };
+  function clearQuestionTimer() {
+    window.clearInterval(questionTimerInterval);
+    questionTimerInterval = null;
+  }
+  function startQuestionTimer() {
+    clearQuestionTimer();
+    const deadline = Date.now() + phases[selectedPhase].timeLimitSeconds * 1000;
+    const timer = $("question-timer");
+    const update = () => {
+      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+      const minutes = Math.floor(remaining / 60);
+      const seconds = remaining % 60;
+      timer.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      timer.setAttribute("aria-label", `${minutes} minutes ${seconds} seconds remaining`);
+      timer.classList.toggle("is-low", remaining <= 10);
+      if (remaining === 0) {
+        clearQuestionTimer();
+        submitAnswer(null, true);
+      }
+    };
+    update();
+    questionTimerInterval = window.setInterval(update, 250);
+  }
 
   function getLevelHero(userProgress) {
     userProgress.heroVariants ||= [];
@@ -513,6 +538,7 @@
       const pct = Math.round(cleared / 50 * 100);
       return `<button class="phase-card ${selectedPhase === index ? "selected" : ""} ${cleared >= 50 ? "completed" : ""}" data-phase="${index}" aria-pressed="${selectedPhase === index}" ${battle ? "disabled" : ""}>
         <span class="phase-icon">${phase.icon}</span><h3>${phase.name}</h3><p>${phase.desc}</p>
+        <small class="phase-time-limit">${phase.timeLimitSeconds / 60} MIN / QUESTION</small>
         <div class="phase-card-meta"><strong>LEVEL ${String(level).padStart(2, "0")} / 50</strong><span>${pct}%</span></div>
         <span class="phase-card-action">${selectedPhase === index ? "✓ SELECTED" : cleared >= 50 ? "✓ CLEARED · PLAY AGAIN" : "CHOOSE THIS PHASE"}</span>
       </button>`;
@@ -562,8 +588,10 @@
     $("round-indicator").textContent = `ROUND 0${battle.answered + 1}`;
     $("question-category").textContent = `${phases[selectedPhase].short} · ENCOUNTER QUESTION ${battle.answered + 1} OF 4`;
     $("question-title").textContent = "Choose your answer.";
-    $("question-content").innerHTML = `<div class="question-live"><p class="question-text">${question.prompt}</p><div class="answers-grid">${question.options.map((option, i) => `<button class="answer-button" data-answer="${i}"><b>${String.fromCharCode(65 + i)}</b>${option.text}</button>`).join("")}</div></div>`;
+    $("question-content").innerHTML = `<div class="question-live"><div class="question-timer-row"><span>TIME LEFT</span><strong class="question-timer" id="question-timer" role="timer" aria-label="Time remaining"></strong></div><p class="question-text">${question.prompt}</p><div class="answers-grid">${question.options.map((option, i) => `<button class="answer-button" data-answer="${i}"><b>${String.fromCharCode(65 + i)}</b>${option.text}</button>`).join("")}</div></div>`;
+    questionAnswered = false;
     $("question-content").querySelectorAll(".answer-button").forEach((button) => button.addEventListener("click", () => submitAnswer(Number(button.dataset.answer))));
+    startQuestionTimer();
   }
 
   function getAudioContext() {
@@ -712,16 +740,18 @@
     }
   }
 
-  function submitAnswer(choiceIndex) {
-    if (!battle || !pendingQuestion) return;
+  function submitAnswer(choiceIndex, timedOut = false) {
+    if (!battle || !pendingQuestion || questionAnswered) return;
     const selected = pendingQuestion.options[choiceIndex];
-    if (!selected) return;
+    if (!selected && !timedOut) return;
+    questionAnswered = true;
+    clearQuestionTimer();
     $("question-content").querySelectorAll(".answer-button").forEach((button, index) => {
       button.disabled = true;
       if (pendingQuestion.options[index].correct) button.classList.add("correct");
-      else if (index === choiceIndex) button.classList.add("incorrect");
+      else if (!timedOut && index === choiceIndex) button.classList.add("incorrect");
     });
-    const isCorrect = selected.correct;
+    const isCorrect = selected?.correct === true;
     battle.answered++;
     battle.cursor++;
     progress().answered++;
@@ -751,21 +781,22 @@
       $("enemy-fighter").classList.remove("counter"); $("hero-fighter").classList.remove("damaged");
       void $("hero-fighter").offsetWidth;
       $("enemy-fighter").classList.add("counter"); $("hero-fighter").classList.add("damaged");
-      $("battle-message").textContent = "The examiner counter-attacks. Review the explanation.";
+      $("battle-message").textContent = timedOut ? "Time ran out. The examiner counter-attacks." : "The examiner counter-attacks. Review the explanation.";
     }
     playCombatSound(isCorrect ? "attack" : "damage");
     save();
     render();
     $("feedback-dialog").classList.toggle("is-wrong", !isCorrect);
     $("feedback-mark").textContent = isCorrect ? "✦" : "!";
-    $("feedback-eyebrow").textContent = isCorrect ? "NICE WORK" : "LEARN FROM THE MISS";
-    $("feedback-title").textContent = isCorrect ? "Correct!" : "Not quite.";
-    $("feedback-explanation").textContent = `${isCorrect ? "" : `Correct answer: ${pendingQuestion.answer}. `}${pendingQuestion.explanation}`;
-    $("feedback-reward").textContent = isCorrect ? "+10 XP · ENEMY HIT" : "KEEP GOING";
+    $("feedback-eyebrow").textContent = timedOut ? "TIME LIMIT REACHED" : isCorrect ? "NICE WORK" : "LEARN FROM THE MISS";
+    $("feedback-title").textContent = timedOut ? "Time's up." : isCorrect ? "Correct!" : "Not quite.";
+    $("feedback-explanation").textContent = `${isCorrect ? "" : `${timedOut ? "Time ran out. " : ""}Correct answer: ${pendingQuestion.answer}. `}${pendingQuestion.explanation}`;
+    $("feedback-reward").textContent = isCorrect ? "+10 XP · ENEMY HIT" : timedOut ? "NO ANSWER · TIME EXPIRED" : "KEEP GOING";
     dialogs.feedback.showModal();
   }
 
   function finishBattle() {
+    clearQuestionTimer();
     const won = battle.correct >= 3;
     const p = progress();
     if (won) {
