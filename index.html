@@ -10,6 +10,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .landing-visual,
+    .landing-battle-card,
+    .landing-creatures,
+    .landing-creature,
+    .landing-creature > span,
+    .landing-creature svg {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    .landing-creature > span { display: block !important; }
+    .landing-creature img {
+      display: block !important;
+      width: 96px !important;
+      height: 96px !important;
+      object-fit: contain !important;
+      filter: none !important;
+    }
+    #logout-button {
+      transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+      border: 1px solid rgba(100, 226, 208, 0.35);
+      border-radius: 8px;
+    }
+    #logout-button:hover,
+    #logout-button:focus-visible {
+      color: #64e2d0;
+      background-color: rgba(100, 226, 208, 0.1);
+      border-color: #64e2d0;
+      transform: translateY(-1px);
+    }
+  </style>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -45,9 +76,9 @@
         <div class="landing-battle-card">
           <div class="landing-battle-label"><span class="live-dot"></span> YOUR TRAINING GROUND</div>
           <div class="landing-creatures">
-            <div class="landing-creature fox-creature"><span>🦊</span><small>YOUR HERO</small></div>
+            <div class="landing-creature fox-creature"><span aria-hidden="true"><img src="player-heroes/azure-knight.png" alt="" style="filter: brightness(0) saturate(100%);"></span><small>YOUR HERO</small></div>
             <b class="landing-versus">VS</b>
-            <div class="landing-creature dragon-creature"><span>🐉</span><small>THE EXAMINER</small></div>
+            <div class="landing-creature dragon-creature"><span aria-hidden="true"><img src="examiners/emerald-revenant.png" alt="" style="filter: brightness(0) saturate(100%);"></span><small>THE EXAMINER</small></div>
           </div>
           <div class="landing-battle-footer"><span>READY WHEN YOU ARE</span><span class="landing-battle-dots"><i></i><i></i><i></i></span></div>
         </div>
