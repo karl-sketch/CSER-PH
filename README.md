@@ -7,7 +7,7 @@ A responsive Civil Service Examination reviewer prototype with four combat-theme
 - Logical Reasoning
 - General Information
 
-Each phase includes 50 questions and 50 progression levels. Encounters ask up to four questions; three correct answers win. Correct answers award XP, while missed answers show the right answer and an explanation.
+Each phase includes 50 questions and 50 progression levels. Encounters ask up to four questions; three correct answers win. Each question has a time limit: one minute in Phases 1, 3, and 4, and two minutes in Phase 2. A timeout counts as a missed answer. Correct answers award XP, while missed answers show the right answer and an explanation.
 
 The learner's profile avatar appears beside one of 20 player-only fantasy heroes, randomly selected for each phase level from transparent cutouts of the supplied hero image in `player-heroes/`. Each phase level also gets a randomly selected examiner from 20 transparent character portraits in `examiners/`. Both character sets are prepared as 4× PNGs with smoothed transparency, subtle color/contrast tuning, and edge sharpening for high-density displays. Each character keeps its selection if the learner retries the same level and respawns with a new portrait after advancing. The portraits retain idle, attack, damage, and respawn animations. Upscaling improves display clarity but cannot add detail that was not present in the supplied images.
 
